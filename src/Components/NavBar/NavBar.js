@@ -2,14 +2,14 @@ import CartWidget from "../CartWidget/CartWidget";
 const NavBar = () => {
   return (
     <nav>
-      <h2 className="bg-white rounded-lg p-3 shadow-xl text-center">
+      <h1 className="bg-amber-200 italic hover:not-italic font-extrabold tracking-widest hover:font-serif text-amber-500  p-3   shadow-xl shadow-rose-400 text-center ">
         Ortopedia Horizonte
-      </h2>
+      </h1>
 
-      <div className="bg-red rounded-lg p-4 shadow-xl flex gap-10">
-        <button>Productos </button>
-        <button>Alquileres</button>
-        < CartWidget/ >
+      <div className=" p-4 shadow-xl flex gap-10">
+        <button className="outline outline-offset-2 outline-pink-500 ">Productos </button>
+        <button className="outline outline-offset-2 outline-orange-500">Alquileres</button>
+        <CartWidget />
       </div>
     </nav>
   );
