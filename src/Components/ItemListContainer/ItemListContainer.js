@@ -18,7 +18,7 @@ const ItemListContainer = ({ greeting }) => {
   }, [categoryId]);
 
   return (
-    <div>
+    <div className="flex flex-wrap gap-4">
       <h1>{greeting}</h1>
       <ItemList products={products} />
     </div>

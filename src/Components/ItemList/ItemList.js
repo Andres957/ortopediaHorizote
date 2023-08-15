@@ -1,8 +1,8 @@
-import './ItemList.css';
+
 import Item from '../Item/Item';
 const ItemList =({products}) => {
     return (
-        <div className= 'ListGroup'>
+        <div className="flex flex-row ...">
             {products.map(prod => <Item key={prod.id}{...prod} />)}
         </div>
     )

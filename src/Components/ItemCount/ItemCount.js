@@ -1,4 +1,3 @@
-import "./ItemCount.css";
 import { useState } from "react";
 const ItemCount = ({ stock, initial, onAdd }) => {
   const [quantity, setQuantity] = useState(initial);
@@ -16,12 +15,12 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   return (
     <div className="Counter">
-      <div className="Controls">
-        <button className="Button" onClick={decrement}>
+      <div className="flex">
+        <button className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 " onClick={decrement}>
           -
         </button>
         <h4 className="Number">{quantity}</h4>
-        <button className="Button" onClick={increment}>
+        <button className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onClick={increment}>
           +
         </button>
       </div>
