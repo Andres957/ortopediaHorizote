@@ -26,3 +26,4 @@ const ItemDetail =({id,name,img,category, description, price, stock})=>{
        </article> 
     )
 }
+export default ItemDetail
