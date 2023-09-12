@@ -1,10 +1,20 @@
-function CartWidget() {
+import cart from "../../assets/silla.jpg";
+
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
+const CartWidget = () => {
+  const { totalQuantity } = useContext(CartContext);
   return (
-    <div>
-      <i className=" material-icons">shopping_cart</i>
-      <span>1</span>
-    </div>
+    <Link
+      to="/cart"
+      className="CartWidget"
+      style={{ display: totalQuantity > 0 ? "block" : "none" }}
+    >
+      <img className="CartImg" src={cart} alt="cart-widget" />
+      {totalQuantity}
+    </Link>
   );
-}
+};
 
 export default CartWidget;
