@@ -16,17 +16,16 @@ const ItemListContainer = ({ greeting }) => {
 
     getDocs(collectionRef)
     .then(response=> {
-      const productsAdapted= response.docs.map(doc=>{
+      const productsAdapted=response.docs.map((doc)=>{
         const data= doc.data()
         return{ id:doc.id,...data}
       })
-      
-      .catch (error=> {
+      setProducts(productsAdapted);
+      setLoading(false)
+      /*.catch (error => {
         console.log(error)
       })
-      .finally(()=>{
-        setLoading(false)
-      })
+      */
     },[categoryId])
       
   })}

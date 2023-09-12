@@ -6,7 +6,7 @@ import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailCont
 import Cart from './Components/Cart/Cart';
 import Checkout from './Components/Checkout/Checkout';
 import {CartProvider} from './context/CartContext';
-
+import 'firebase/firestore';
 function App() {
   return (
     <div className="App">

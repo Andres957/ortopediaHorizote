@@ -11,13 +11,13 @@ const NavBar = () => {
       </Link>
       <div className=" p-4 shadow-xl flex gap-10">
         <NavLink
-          to={`/category/ortopedia`}
+          to={'/category/ortopedia'}
           className={({ isActive }) => (isActive ? "ActiveOption" : "Option")}
         >
           ortopedia
         </NavLink>
         <NavLink
-          to={`/category/alquiler`}
+          to={'/category/ortopedia'}
           className={({ isActive }) => (isActive ? "ActiveOption" : "Option")}
         >
           alquiler
