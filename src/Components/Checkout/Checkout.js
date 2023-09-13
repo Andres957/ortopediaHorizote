@@ -1,9 +1,11 @@
-import { getDocs, addDoc, collection, query } from "firebase/firestore";
-import { db } from "../../firebase/Firebase";
+
+import 'firebase/auth'; // Importa los servicios de Firebase que necesitas
+import 'firebase/firestore'; // Importa servicios adicionales si es necesario
+import { getDocs, addDoc, collection, query } from "firebase/firebase";
+import {db} from '../../firebase/Firebase'
 import { useState } from "react";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 import { where } from "firebase/firestore";
 const Checkout = () => {
