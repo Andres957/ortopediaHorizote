@@ -1,36 +1,48 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getDocs,  collection, query, where} from 'firebase/firestore';
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../../db/firebaseConfig";
 
-import {db} from '../../firebase/Firebase';
-const ItemListContainer = ({ greeting }) => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading]= useState (true)
+import ItemList from "../ItemList/ItemList";
+
+const ItemListContainer = () => {
+  const [producto, setProducto] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { categoryId } = useParams();
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
 
-    const collectionRef= categoryId
-    ? query (collection(db, 'producto'), where('category','==', categoryId))
-    : collection(db,'producto')
+    const collectionRef = categoryId
+      ? query(collection(db, "producto"), where("category", "==", categoryId))
+      : collection(db, "producto");
 
     getDocs(collectionRef)
-    .then(response=> {
-      const productsAdapted=response.docs.map((doc)=>{
-        const data= doc.data()
-        return{ id:doc.id,...data}
+      .then((response) => {
+        const productoAdapted = response.docs.map((doc) => {
+          const data = doc.data();
+          return { id: doc.id, ...data };
+        });
+        setProducto(productoAdapted);
+        
       })
-      setProducts(productsAdapted);
-      setLoading(false)
-      /*.catch (error => {
-        console.log(error)
+      .catch((error) => {
+        console.error(error);
       })
-      */
-    },[categoryId])
-      
-  })}
-  export default ItemListContainer;
-    
-
-  
-
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [categoryId]);
+  if (loading) {
+    return (
+      <>
+        <h2 className="text-center py-4 text-5xl bg-[#F3F4F6] mt-16 lg:mt-20">
+          Cargando...
+        </h2>
+        
+      </>
+    );
+  } else {
+    return <ItemList producto={producto} />;
+  }
+};
+export default ItemListContainer;

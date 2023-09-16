@@ -1,10 +1,14 @@
 import CartWidget from "../CartWidget/CartWidget";
+import { useState } from "react";
+
 
 import { NavLink, Link } from "react-router-dom";
+
 const NavBar = () => {
+  let [setOpen] = useState(false);
   return (
     <nav className="NavBar">
-      <Link to="/">
+      <Link onClick={() => setOpen(false)} to={"/"}>
         <h1 className="bg-amber-200 italic hover:not-italic font-extrabold tracking-widest hover:font-serif text-amber-500  p-3   shadow-xl shadow-rose-400 text-center ">
           Ortopedia Horizonte
         </h1>
@@ -14,16 +18,17 @@ const NavBar = () => {
           to={'/category/ortopedia'}
           className={({ isActive }) => (isActive ? "ActiveOption" : "Option")}
         >
-          ortopedia
+          Ortopedia
         </NavLink>
         <NavLink
-          to={'/category/ortopedia'}
+          to={'/category/alquiler'}
           className={({ isActive }) => (isActive ? "ActiveOption" : "Option")}
         >
-          alquiler
+          Alquiler
         </NavLink>
+        <CartWidget />
       </div>
-      <CartWidget />
+      
     </nav>
   );
 };

@@ -1,9 +1,9 @@
 
 import Item from '../Item/Item';
-const ItemList =({products}) => {
+const ItemList =({producto}) => {
     return (
         <div className="flex flex-row ...">
-            {products.map(prod => <Item key={prod.id}{...prod} />)}
+            {producto.map(prod =>(<Item key={prod.id}{...prod} />))}
         </div>
     )
 }
